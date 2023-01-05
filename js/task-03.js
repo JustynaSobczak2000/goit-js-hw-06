@@ -13,22 +13,34 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector(".gallery");
-gallery.style.display = "flex";
-gallery.style.flexDirection = "row";
-gallery.style.justifyContent = "center";
-gallery.style.gridGap = "170px";
-gallery.style.listStyle = "none";
-gallery.style.border = "3px solid green";
 
-for (const img of images) {
-  gallery.insertAdjacentHTML(
-    "afterbegin",
-    `<li><img src=${img.url}, alt=${
-      img.alt
-    }, width=${250}, height=250></img></li>`
-  );
-}
+
+const imagesList = document.querySelector("ul.gallery");
+const createImagesListItem = images
+  .map(
+    (image) =>
+      `<li class="gallery__item"><img class="gallery__image" src="${image.url}" alt="${image.alt}"></li>`
+  )
+  .join("");
+imagesList.insertAdjacentHTML("afterbegin", createImagesListItem);
+
+
+//const gallery = document.querySelector(".gallery");
+//gallery.style.display = "flex";
+//gallery.style.flexDirection = "row";
+//gallery.style.justifyContent = "center";
+//gallery.style.gridGap = "170px";
+//gallery.style.listStyle = "none";
+//gallery.style.border = "3px solid green";
+
+//for (const img of images) {
+  //gallery.insertAdjacentHTML(
+    //"afterbegin",
+    //`<li><img src=${img.url}, alt=${
+    //  img.alt
+    //}, width=${250}, height=250></img></li>`
+  //);
+//}
 
 //DRUGA METODA
 
